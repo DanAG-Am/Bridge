@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bridge — small help, made visible</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar"><a class="brand" href="/"><span class="mark">↗</span>Bridge</a><nav><a href="#requests">Find a request</a><a href="#ask">Ask for help</a><button id="support-button" class="support-button">Supporter view</button></nav></header>
+    <section class="hero"><div><p class="eyebrow">MUTUAL AID, WITHOUT THE MYSTERY</p><h1>Small help can move someone forward.</h1><p class="lede">Bridge turns real needs into clear, respectful requests — then makes it easy for a community to help through PayPal.</p></div><div class="hero-note"><strong>Safety is part of the design.</strong><p>New requests are reviewed before contributions open. AI helps with wording; people make the decisions.</p></div></section>
+    <section class="stats"><div><strong id="open-count">0</strong><span>open requests</span></div><div><strong id="funded-total">$0</strong><span>already funded</span></div><div><strong>100%</strong><span>human choice</span></div></section>
+    <section id="requests" class="request-section"><div class="section-head"><div><p class="eyebrow">COMMUNITY BOARD</p><h2>People asking for a bridge.</h2></div><div class="filters" id="filters"></div></div><div id="request-grid" class="request-grid"></div></section>
+    <section id="ask" class="ask-layout"><div class="ask-copy"><p class="eyebrow">NEED A HAND?</p><h2>Make the request easier to understand.</h2><p>Write it in your own words. Bridge can remove identifying details and turn it into a clear request. It never decides whether you qualify.</p><div class="safety-list"><span>✓ Requests capped at $500</span><span>✓ One new request per hour</span><span>✓ Human review before donations</span></div></div><form id="request-form" class="request-form"><label>What do you need help with?<textarea id="request-input" maxlength="800" placeholder="I need help with groceries until my next paycheck..."></textarea></label><div class="form-row"><label>Goal<input id="request-goal" type="number" min="1" max="500" step="1" placeholder="45"></label><button>Make it clear <span>→</span></button></div><div id="draft-preview" class="draft-preview" hidden></div></form></section>
+    <section id="my-support" class="support-dashboard"><div class="section-head"><div><p class="eyebrow">YOUR BRIDGE</p><h2>Support you have given.</h2></div><span class="muted">Saved on this device</span></div><div id="support-history" class="support-history"></div></section>
+    <div id="status" class="status" aria-live="polite"></div>
+  </main>
+  <aside id="contribution-drawer" class="drawer" aria-hidden="true"><div class="drawer-head"><div><p class="eyebrow">MAKE A DIFFERENCE</p><h2 id="drawer-title"></h2></div><button id="close-drawer" class="close-button">×</button></div><p id="drawer-story" class="drawer-story"></p><div class="progress"><span id="drawer-progress"></span></div><p id="drawer-progress-copy"></p><label>Contribution amount<input id="contribution-amount" type="number" min="1" max="25" step="1"></label><button id="contribute-button" class="primary-button">Continue with PayPal <span>→</span></button><small>Your contribution goes through PayPal Sandbox. Bridge never stores card details.</small></aside><div id="scrim" class="scrim"></div>
+  <script src="/app.js"></script>
+</body>
+</html>

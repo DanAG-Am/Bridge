@@ -1,0 +1,84 @@
+{
+  "info": {
+    "name": "Bridge API",
+    "description": "Judge-ready requests for the Bridge mutual-aid prototype.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:5085"
+    },
+    {
+      "key": "requestId",
+      "value": "groceries-before-payday"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/health"
+      }
+    },
+    {
+      "name": "List community requests",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/requests"
+      }
+    },
+    {
+      "name": "Draft request with AI",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"message\":\"I need groceries until Friday. My address is 123 Main Street and my phone is 555-123-4567.\"}"
+        },
+        "url": "{{baseUrl}}/api/ai/polish-request"
+      }
+    },
+    {
+      "name": "Report a concern",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"reason\":\"Demo review request\"}"
+        },
+        "url": "{{baseUrl}}/api/requests/{{requestId}}/report"
+      }
+    },
+    {
+      "name": "Contribution cap validation",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\"requestId\":\"{{requestId}}\",\"amount\":26}"
+        },
+        "url": "{{baseUrl}}/api/paypal/contribution-order"
+      }
+    }
+  ]
+}
